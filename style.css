@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body,html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 62.5%;
+}
+
+main{
+    background: linear-gradient(45deg,orange, cyan);
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+.begin{
+    width:300px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+	padding-bottom: 20px;
+	background-color:#FFF;
+	margin: auto;
+	opacity:0.9;
+	border-radius:20px;
+    /* display: none; */
+}
+.board{
+	margin-left:150px;
+	margin-top:45px;
+    display: none;
+}
+
+.control{
+    width:300px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+	padding-bottom: 20px;
+	background-color:#FFF;
+	margin-right:150px;
+	margin-top: auto;
+    margin-bottom: auto;
+	opacity:0.8;
+	border-radius:20px;
+    display: none;
+}
+.begin__heading,
+.control__heading{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.control__imgPlayer{
+    width:100px;
+	height:100px;
+	margin:5px auto 5px;
+	margin-top:5px;
+	background-image:url('./Images/Opng.png');
+	background-repeat:round;
+	background-color:#CCC;
+}
+
+.begin__time--label{
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    margin-left: 10px;
+}
+.begin__chbtime{
+    margin-right: 4px;
+}
+.control__time{
+	width: 90%;
+    font-size: 1.8rem;
+	/* background-color:#3F6; */
+    margin: 15px 15px 0;
+}
+time{
+    font-size: 1.6rem;
+    margin-left: auto;
+    margin-right: 15px;
+}
+.begin__btn,
+.control__button{
+    border: none;
+    padding: 10px 12px;
+    cursor:pointer;
+    margin: 10px 15px 0;
+    border-radius: 20px;
+    font-weight: 500;
+}
+.begin__btn:hover,
+.control__button:hover{
+    background: linear-gradient(45deg,cyan, orange);
+    font-weight: bold;
+}
+.square{
+    width:30px;
+	height:30px;
+	font-size:10px;
+	border-right:#000 1px solid;
+	border-top:#000 1px solid;
+	background-color:#FFF;
+	background-repeat:round;
+	overflow:hidden;
+	opacity:0.7;
+	cursor:pointer;
+    transition: all linear 0.2s;
+}
+.square:hover {
+    background-color: orange;
+}
+
+.begin__CPlayer{
+    margin: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.begin__CPlayer--label{
+    width: 100%;
+    margin: 10px;
+    font-size: 1.8rem;
+}
+label {
+    border: 1px solid transparent;
+    padding: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+label[for="X"]:hover,
+label[for="O"]:hover,
+#X:checked ~ label[for="X"],
+#O:checked ~ label[for="O"] {
+    border-top-color: cyan;
+    border-right-color: cyan;
+    border-bottom-color: orange;
+    border-left-color: orange;
+}

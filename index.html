@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./Images/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Cờ Caro</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body onload="Loaded()">
+    <main>
+        <div class="begin">
+            <div class="begin__heading">Chọn chế độ</div>
+            <div class="begin__time--label"><input type="checkbox" class="begin__chbtime" onClick="TimeReturn()" />Time
+            </div>
+            <div class="begin__CPlayer">
+                <label class="begin__CPlayer--label">Chọn người chơi</label>
+                <input type="radio" name="CPlayer" id="X" onChange="PlayerReturn()" hidden checked>
+                <label for="X">
+                    <img src="./Images/Xpng.png" alt="Anh X" width="50">
+                </label>
+                <input type="radio" name="CPlayer" id="O" onChange="PlayerReturn()" hidden>
+                <label for="O">
+                    <img src="./Images/Opng.png" alt="Anh O" width="50">
+                </label>
+            </div>
+            <br>
+            <button class="begin__btn" onclick="PvsP()">Người Vs Người</button>
+            <button class="begin__btn" onclick="PvsM()">Người Vs Máy</button>
+        </div>
+        <div class="board">
+            <table id="table">
+                <tbody>
+                    <!-- chứa các ô vuông -->
+                </tbody>
+            </table>
+        </div>
+        <div class="control">
+            <div class="control__heading"><b>NGƯỜI CHƠI HIỆN TẠI:</b></div>
+            <div class="control__imgPlayer"></div>
+            <br />
+            <progress class="control__time" max="100" value="50"></progress>
+            <time>00:10</time>
+            <br />
+            <button class="control__button" hidden onclick="playAgain()">Chơi lại</button>
+        </div>
+    </main>
+    <script src="./Event.js"></script>
+    <script src="./AIFile.js"></script>
+</body>
+
+</html>
