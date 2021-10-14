@@ -1,16 +1,3 @@
-const size = 16
-let InGame = false
-let l_played = [],
-	l_win = []
-let CPlayer = 1 /* Người chơi 1= X 0 = O */
-let AI = false
-const countmax = 5
-let mode = 0
-let timereturn = false;
-let timeDefault = 5 * 60 * 1000 /*time = ms*/
-let timeRun = timeDefault
-let pwin = -1 /* Người chơi win 0: O và 1: X và -1: Hòa*/
-let botDelay = 500 /* Độ trễ của bot khi đánh 500ms */
 
 const begin = document.querySelector(".begin");
 const board = document.querySelector(".board");
@@ -167,7 +154,7 @@ function Click(id) {
 	// }
 }
 
-// MiniMax
+// Min 2 số
 function minab(a, b) {
 	if (a < b) return a;
 	else return b;
@@ -205,7 +192,6 @@ function PlayerReturn() {
 	let player = document.getElementById("X");
 	if (player.checked) CPlayer = 1;
 	else CPlayer = 0;
-	console.log(CPlayer)
 }
 // tạo chuỗi hiển thị thời gian
 function seekTime(time) {
@@ -270,12 +256,7 @@ function winHor(x, y, Board) {
 		else { if (p != -1) counto++; break; };
 	}
 	if (count >= countmax) {
-		if (mode == 0)
-			return true;
-		else {
-			if (counto >= 2) return false;
-			else return true;
-		}
+		return true;
 	}
 	return false;
 }
@@ -300,12 +281,7 @@ function winVer(x, y, Board) {
 		else { if (p != -1) counto++; break; };
 	}
 	if (count >= countmax) {
-		if (mode == 0)
-			return true;
-		else {
-			if (counto >= 2) return false;
-			else return true;
-		}
+		return true;
 	}
 	return false;
 }
@@ -331,12 +307,7 @@ function winCross1(x, y, Board) {
 		else { if (p != -1) counto++; break; };
 	}
 	if (count >= countmax) {
-		if (mode == 0)
-			return true;
-		else {
-			if (counto >= 2) return false;
-			else return true;
-		}
+		return true;
 	}
 	return false;
 }
@@ -362,12 +333,7 @@ function winCross2(x, y, Board) {
 		else { if (p != -1) counto++; break; };
 	}
 	if (count >= countmax) {
-		if (mode == 0)
-			return true;
-		else {
-			if (counto >= 2) return false;
-			else return true;
-		}
+		return true;
 	}
 	return false;
 }

@@ -1,8 +1,4 @@
-// MiniMax
-function maxab(a, b) {
-	if (a > b) return a;
-	else return b;
-}
+// Min a và b
 function minab(a, b) {
 	if (a < b) return a;
 	else return b;
@@ -71,7 +67,6 @@ function GetMarkHor(x,y,TBoard,player)
 		if (TBoard[i+y*size] == player) count++;
 		else {if (TBoard[i+y*size] != -1) counto++;break;}
 	}
-	if (mode == 1 && counto >= 2) return 0;
 	if ((x == 0 || x == size-1) && count < 4) counto++;
 	if (count <= counto) return 0;
 	else if (count - counto >= 3) return count + counto;
@@ -91,7 +86,6 @@ function GetMarkVer(x,y,TBoard,player)
 		if (TBoard[x+i*size] == player) count++;
 		else {if (TBoard[x+i*size] != -1) counto++;break;}
 	}
-	if (mode == 1 && counto >= 2) return 0;
 	if ((y == 0 || y == size-1) && count < 4) counto++;
 	if (count <= counto) return 0;
 	else if (count - counto >= 3) return count + counto;
@@ -111,7 +105,6 @@ function GetMarkCross1(x,y,TBoard,player)
 		if (TBoard[(x-i)+(y+i)*size] == player) count++;
 		else {if (TBoard[(x-i)+(y+i)*size] != -1) counto++;break;}
 	}
-	if (mode == 1 && counto >= 2) return 0;
 	if ((x == 0 || x == size-1 || y == 0 || y == size-1) && count < 4) counto++;
 	if (count <= counto) return 0;
 	else if (count - counto >= 3) return count + counto;
@@ -131,7 +124,6 @@ function GetMarkCross2(x,y,TBoard,player)
 		if (TBoard[(x+i)+(y+i)*size] == player) count++;
 		else {if (TBoard[(x+i)+(y+i)*size] != -1) counto++;break;}
 	}
-	if (mode == 1 && counto >= 2) return 0;
 	if ((x == 0 || x == size-1 || y == 0 || y == size-1) && count < 4) counto++;
 	if (count <= counto) return 0;
 	else if (count - counto >= 3) return count + counto;
