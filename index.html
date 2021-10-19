@@ -16,8 +16,14 @@
 <body onload="Loaded()">
     <main>
         <div class="begin">
+            <div class="begin__logo">
+                <img src="./Images/Logo.png" alt="Logo">
+            </div>
             <div class="begin__heading">Chọn chế độ</div>
-            <div class="begin__time--label"><input type="checkbox" class="begin__chbtime" onclick="TimeReturn()" />Time
+            <div class="begin__time--label">
+                <input id="cbtime" type="checkbox" class="begin__chbtime" onclick="TimeReturn()" />
+                <label for="cbtime" class="switch-label"></label>
+                <span>Tính thời gian ?</span>
             </div>
             <div class="begin__CPlayer">
                 <label class="begin__CPlayer--label">Chọn người chơi</label>
@@ -33,6 +39,7 @@
             <br>
             <button class="begin__btn" onclick="PvsP()">Người Vs Người</button>
             <button class="begin__btn" onclick="PvsM()">Người Vs Máy</button>
+            <button class="begin__btn" onclick="MvsM()">Máy Vs Máy</button>
         </div>
         <div class="board">
             <table id="table">
