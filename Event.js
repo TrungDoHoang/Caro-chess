@@ -49,6 +49,7 @@ function playAgain() {
 }
 
 function PvsP() {
+	PlayerReturn()
 	AI = false
 	isClicks = true
 	InGame = true
@@ -70,6 +71,7 @@ function PvsP() {
 }
 
 function PvsM() {
+	PlayerReturn()
 	InGame = true
 	isClicks = true
 	AI = true
@@ -90,6 +92,7 @@ function PvsM() {
 }
 
 function MvsM() {
+	PlayerReturn()
 	InGame = true;
 	isClicks = false;
 	AI = true;
