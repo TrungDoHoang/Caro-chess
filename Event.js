@@ -124,7 +124,7 @@ function PlayMvsM() {
 		let imgp = document.querySelector(".control__imgPlayer");
 		imgp.style.backgroundImage = iplayer;
 		setTimeout(() => {
-			AIMode(CPlayer);
+			AIMode(CPlayer,1);
 			pwin = CPlayer;
 			win = WinGame();
 			if (win) {

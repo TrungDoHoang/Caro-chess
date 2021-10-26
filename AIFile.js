@@ -8,10 +8,14 @@ let A_Atk = [0, 4, 8, 12, 16, 20, 24, 28, 32, 36];
 // let A_Def = [0,1,3,15,55,56,57,58,60,62];
 let A_Def = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18];
 
-function AIMode(CPlayer) {
+function AIMode(CPlayer, mode) {
 	if (!InGame) return;
 	let vmax = -Infinity;
 	let px = py = -1;
+	if(mode !== undefined){
+		vmax = 0
+		px = py = Math.floor(size/2)
+	}
 	let TBoard = GetBoard();
 	for (y = 0; y < size; y++) {
 		for (x = 0; x < size; x++) {
