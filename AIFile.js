@@ -3,10 +3,11 @@ function minab(a, b) {
 	if (a < b) return a;
 	else return b;
 }
-// let A_Atk = [0,2,4,20,100,105,110,115,120,130];
-let A_Atk = [0, 4, 8, 12, 16, 20, 24, 28, 32, 36];
-// let A_Def = [0,1,3,15,55,56,57,58,60,62];
-let A_Def = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18];
+
+// Mảng điểm tấn công
+let A_Atk = [0,2,4,20,100,105,110,115,120,130];
+// Điểm phòng thủ
+let A_Def = [0,1,3,15,55,56,57,58,60,62];
 
 function AIMode(CPlayer, mode) {
 	if (!InGame) return;
@@ -14,14 +15,14 @@ function AIMode(CPlayer, mode) {
 	let px = py = -1;
 	if(mode !== undefined){
 		vmax = 0
-		px = py = Math.floor(size/2)
+		px = py = Math.floor(Math.random() * size)
 	}
 	let TBoard = GetBoard();
 	for (y = 0; y < size; y++) {
 		for (x = 0; x < size; x++) {
 			if (TBoard[x + y * size] == -1) {
-				TBoard[x + y * size] = 0;
-				let mark = GetMark(x, y, TBoard);
+				TBoard[x + y * size] = CPlayer;
+				let mark = GetMark(x, y, TBoard, CPlayer);
 				TBoard[x + y * size] = -1;
 				if (mark > vmax) {
 					px = x; py = y;
@@ -40,15 +41,16 @@ function AIMode(CPlayer, mode) {
 	catch (e) { alert(e.message) }
 }
 
-function GetMark(x, y, Tboard) {
+function GetMark(x, y, Tboard, AI_player) {
 	let val = Tboard[x + y * size];
 	if (val == -1) return 0;
+	let P_player = AI_player === 1 ? 0 : 1
 
-	let result = A_Atk[GetMarkHor(x, y, Tboard, 1)] + A_Atk[GetMarkVer(x, y, Tboard, 1)]
-		+ A_Atk[GetMarkCross1(x, y, Tboard, 1)] + A_Atk[GetMarkCross2(x, y, Tboard, 1)];
+	let result = A_Atk[GetMarkHor(x, y, Tboard, AI_player)] + A_Atk[GetMarkVer(x, y, Tboard, AI_player)]
+		+ A_Atk[GetMarkCross1(x, y, Tboard, AI_player)] + A_Atk[GetMarkCross2(x, y, Tboard, AI_player)];
 
-	result += A_Def[GetMarkHor(x, y, Tboard, 0)] + A_Def[GetMarkVer(x, y, Tboard, 0)]
-		+ A_Def[GetMarkCross1(x, y, Tboard, 0)] + A_Def[GetMarkCross2(x, y, Tboard, 0)];
+	result += A_Def[GetMarkHor(x, y, Tboard, P_player)] + A_Def[GetMarkVer(x, y, Tboard, P_player)]
+		+ A_Def[GetMarkCross1(x, y, Tboard, P_player)] + A_Def[GetMarkCross2(x, y, Tboard, P_player)];
 
 	return result;
 }
