@@ -5,6 +5,8 @@ const control = document.querySelector(".control");
 const playAgainBtn = document.querySelector('.control__button')
 const pgr = document.querySelector(".control__time");
 const timeTxt = document.querySelector("time")
+const moveSound = document.querySelector("#move")
+const timeSound = document.querySelector("#time")
 
 // Load game
 function Loaded() {
@@ -128,6 +130,7 @@ function PlayMvsM() {
 			pwin = CPlayer;
 			win = WinGame();
 			if (win) {
+				timeSound.pause()
 				let mess = 'Player with "X" win';
 				if (pwin == 0) mess = 'Player with "O" win';
 				if (pwin === -1) mess = 'Hòa';
@@ -153,6 +156,7 @@ function Click(id) {
 	square.item(pos).style.backgroundImage = path;
 	square.item(pos).setAttribute("player", CPlayer.toString());
 	l_played.push(pos);
+	moveSound.play()
 	square.disabled = true;
 	pwin = CPlayer;
 	let win = WinGame();
@@ -184,6 +188,7 @@ function Click(id) {
 				imgp = document.querySelector(".control__imgPlayer");
 				imgp.style.backgroundImage = iplayer;
 				if (win) {
+					timeSound.pause()
 					let mess = 'Player with "X" win';
 					if (pwin == 0) mess = 'Player with "O" win';
 					if (pwin === -1) mess = 'Hòa';
@@ -195,6 +200,7 @@ function Click(id) {
 	}
 
 	if (win) {
+		timeSound.pause()
 		let mess = 'Player with "X" win';
 		if (pwin == 0) mess = 'Player with "O" win';
 		if (pwin === -1) mess = 'Hòa';
@@ -218,6 +224,7 @@ function minab(a, b) {
 function LoadProgress() {
 	let pgr = document.querySelector(".control__time");
 	if (!timereturn || !InGame) return 1;
+	timeSound.play()
 	setTimeout(
 		function () {
 			pgr.value--;
@@ -226,6 +233,7 @@ function LoadProgress() {
 			if (pgr.value > 0)
 				LoadProgress();
 			else {
+				timeSound.pause()
 				let mess = 'Player with "X" win';
 				if (CPlayer == 1) mess = 'Player with "O" win';
 				alert(mess);

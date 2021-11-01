@@ -37,6 +37,7 @@ function AIMode(CPlayer, mode) {
 		let urlImg = CPlayer == 1 ? "url('Images/Xpng.png')" : "url('Images/Opng.png')"
 		sqr.item(px + py * size).style.backgroundImage = urlImg;
 		l_played.push(px + py * size);
+		moveSound.play()
 	}
 	catch (e) { alert(e.message) }
 }
